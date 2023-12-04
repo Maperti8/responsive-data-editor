@@ -1,19 +1,28 @@
-<p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Symbol</th>
-        <th>Company</th>
-        <th>Price</th>
-        <th>Change</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-stock>
-      <tr>
-        <td>{{ stock.symbol }}</td>
-        <td>{{ stock.company }}</td>
-        <td>{{ stock.price }}</td>
-        <td>{{ stock.change }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-  
+<p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)"
+         [paginator]="true" [rows]="selectedPageSize" [totalRecords]="totalRecords"
+         [scrollable]="true" scrollHeight="800px">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Symbol</th>
+      <th>Company</th>
+      <th>Price</th>
+      <th>Change</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-stock>
+    <tr>
+      <td>{{ stock.symbol }}</td>
+      <td>{{ stock.company }}</td>
+      <td>{{ stock.price }}</td>
+      <td>{{ stock.change }}</td>
+    </tr>
+  </ng-template>
+
+  <!-- Custom Paginator Left Template -->
+  <ng-template pTemplate="paginatorleft" let-state>
+    <p-dropdown [options]="pageSizes" [(ngModel)]="selectedPageSize" (onChange)="onPageSizeChange()" styleClass="paginator-dropdown"></p-dropdown>
+  </ng-template>
+
+</p-table>

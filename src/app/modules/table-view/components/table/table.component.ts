@@ -10,19 +10,25 @@ import { DataService } from '../../services/data.service';
 })
 export class TableComponent implements OnInit {
   stocks: Stock[] = [];
-  totalRecords: number = 0; // Total number of records for pagination
+  totalRecords: number = 0; 
+  selectedPageSize = 10; // Default page size
+  pageSizes = [{label: '10', value: 10}, {label: '20', value: 20}, {label: '50', value: 50}];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {}
 
-  loadStocksLazy(event: LazyLoadEvent | any) { // Using 'any' to bypass strict type checking
+  loadStocksLazy(event: LazyLoadEvent | any) { 
     const start = event.first != null ? event.first : 0;
-    const rows = event.rows != null ? event.rows : 10;
+    const rows = event.rows != null ? event.rows : this.selectedPageSize;
 
     this.dataService.getDataSegment(start, rows).subscribe(data => {
       this.stocks = data.stocks;
       this.totalRecords = data.totalRecords;
     });
+  }
+
+  onPageSizeChange() {
+    this.loadStocksLazy({ first: 0, rows: this.selectedPageSize });
   }
 }

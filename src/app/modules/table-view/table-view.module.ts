@@ -6,6 +6,8 @@ import { TableComponent } from './components/table/table.component';
 import { TableViewComponent } from './components/table-view/table-view.component';
 //routing
 import { TableViewRoutingModule } from './table-view-routing.module';
+// primeNG table 
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { TableViewRoutingModule } from './table-view-routing.module';
   imports: [
     CommonModule,
     TableViewRoutingModule,
+    TableModule,
   ]
 })
 export class TableViewModule { }

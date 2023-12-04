@@ -38,13 +38,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "primeng/resources/themes/bootstrap4-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css"
             ],
             "scripts": [
-              "./node_modules/toastr/build/toastr.min.js",
-              "node_modules/primeng/resources/themes/saga-blue/theme.js",
-              "node_modules/primeng/resources/primeng.min.js"
             ]
           },
           "configurations": {

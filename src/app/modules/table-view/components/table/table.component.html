@@ -1,4 +1,4 @@
-<p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)" [paginator]="true">
+<p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
     <ng-template pTemplate="header">
       <tr>
         <th>Symbol</th>

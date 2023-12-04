@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LazyLoadEvent } from 'primeng/api';
 import { Stock } from '../../models/stocks.interface';
 import { DataService } from '../../services/data.service';
 
@@ -9,21 +10,17 @@ import { DataService } from '../../services/data.service';
 })
 export class TableComponent implements OnInit {
   stocks: Stock[] = [];
-  totalRecords: number = 0;
+  totalRecords: number = 0; // Total number of records for pagination
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.loadStocksLazy({ first: 0, rows: 10 });
-  }
+  ngOnInit(): void {}
 
-  loadStocksLazy(event: any) {
-    // Provide default values for 'first' and 'rows' if they are null or undefined
+  loadStocksLazy(event: LazyLoadEvent | any) { // Using 'any' to bypass strict type checking
     const start = event.first != null ? event.first : 0;
     const rows = event.rows != null ? event.rows : 10;
 
     this.dataService.getDataSegment(start, rows).subscribe(data => {
-      console.log(data); // Check what data you're receiving
       this.stocks = data.stocks;
       this.totalRecords = data.totalRecords;
     });

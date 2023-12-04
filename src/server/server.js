@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 });
 
 // Import the "products" router
-const productsRouter = require('./routes/data');
+const dataRouter = require('./routes/data');
 
-app.use('/', productsRouter);
+app.use('/', dataRouter);
 
 module.exports = app;

@@ -30,7 +30,16 @@
       <td>{{ stock.company }}</td>
       <td>{{ stock.price }}</td>
       <td>{{ stock.change }}</td>
-      <td>{{ stock.date }}</td>
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-calendar [(ngModel)]="stock.date" [showIcon]="true" inputId="icon"></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ stock.date | date: 'shortDate' }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
       <td pEditableColumn>
         <p-cellEditor>
           <ng-template pTemplate="input">

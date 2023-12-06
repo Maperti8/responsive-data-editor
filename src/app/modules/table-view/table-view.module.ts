@@ -14,6 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InputTextModule } from 'primeng/inputtext';
     MultiSelectModule, 
     ButtonModule,
     InputTextModule,
+    CalendarModule,
   ]
 })
 export class TableViewModule { }

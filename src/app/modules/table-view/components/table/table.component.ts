@@ -13,7 +13,6 @@ import { Ticker } from '../../models/ticker.interface'
 export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
-
   selectedTickers: string[] = [];
 
   totalRecords: number = 0; 
@@ -38,6 +37,19 @@ export class TableComponent implements OnInit {
       console.log(this.stocks)
       this.totalRecords = data.totalRecords;
     });
+  }
+
+  onSearchClick() {
+    if (this.selectedTickers.length > 0) {
+      this.dataService.getDataByTickers(this.selectedTickers).subscribe(data => {
+        this.stocks = data.stocks;
+        console.log(this.stocks);
+        this.totalRecords = data.totalRecords;
+      });
+    } else {
+      // Handle the case when no tickers are selected
+      console.log('No tickers selected');
+    }
   }
 
   onPageSizeChange() {

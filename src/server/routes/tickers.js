@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     if (data && Array.isArray(data.stocks)) {
       const stocks = data.stocks.map((stock, index) => ({
         label: stock.symbol,
-        id: (index + 1).toString(), 
+        id: stock.symbol, 
       }));
 
       res.json(stocks);

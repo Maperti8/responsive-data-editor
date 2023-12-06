@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,14 +13,26 @@ export class DataService {
   getData(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
-  // populate tickers array
+
   getTickers(): Observable<any> {
-    return this.http.get(this.apiUrl + '/tickers')
+    return this.http.get(this.apiUrl + '/tickers');
   }
-  // populate table based on pagination
+
   getDataSegment(start: number, limit: number): Observable<any> {
     console.log('Service method invoked with pagination');
-    const params = { start: start.toString(), limit: limit.toString() };
+    const params = new HttpParams()
+      .set('start', start.toString())
+      .set('limit', limit.toString());
+
     return this.http.get(this.apiUrl + '/data', { params });
+  }
+
+  getDataByTickers(selectedSymbols: string[]): Observable<any> {
+    console.log('Service method invoked with selected symbols', selectedSymbols);
+    
+    const params = new HttpParams()
+      .set('symbols', selectedSymbols.join(','));
+
+    return this.http.get(this.apiUrl + '/data/tickers/filtered', { params });
   }
 }

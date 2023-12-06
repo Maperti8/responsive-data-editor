@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
 // primeNG table 
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
     FormComponent,
     TableComponent,
-    TableViewComponent
+    TableViewComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +25,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     DropdownModule,
     FormsModule,
+    MultiSelectModule, 
   ]
 })
 export class TableViewModule { }

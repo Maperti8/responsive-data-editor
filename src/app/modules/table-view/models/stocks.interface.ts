@@ -3,5 +3,7 @@ export interface Stock {
     company: string;
     price: number;
     change: string;
+    date: Date;
+    description: string
   }
   

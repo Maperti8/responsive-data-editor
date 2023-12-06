@@ -1,6 +1,14 @@
+<p-multiSelect
+  [options]="tickers"
+  [(ngModel)]="selectedTickers"
+  [filter]="true"
+  optionLabel=""
+  placeholder="Select tickers">
+</p-multiSelect>
+
 <p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)"
-         [paginator]="true" [rows]="selectedPageSize" [totalRecords]="totalRecords"
-         [scrollable]="true" scrollHeight="800px">
+  [paginator]="true" [rows]="selectedPageSize" [totalRecords]="totalRecords"
+  [scrollable]="true" scrollHeight="800px">
 
   <ng-template pTemplate="header">
     <tr>
@@ -8,6 +16,8 @@
       <th>Company</th>
       <th>Price</th>
       <th>Change</th>
+      <th>Date</th>
+      <th>Description</th>
     </tr>
   </ng-template>
 
@@ -17,6 +27,8 @@
       <td>{{ stock.company }}</td>
       <td>{{ stock.price }}</td>
       <td>{{ stock.change }}</td>
+      <td>{{ stock.date }}</td>
+      <td>{{ stock.description }}</td>
     </tr>
   </ng-template>
 

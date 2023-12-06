@@ -1,4 +1,5 @@
-const express = require("express");
+// app.js
+const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -11,11 +12,13 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Import the data router
+// Import the data and ticker routers
 const dataRouter = require('./routes/data');
+const tickerRouter = require('./routes/tickers'); 
 
-// Use the data router
+// Use the data and ticker routers
 app.use('/data', dataRouter);
+app.use('/tickers', tickerRouter); 
 
 // Root route
 app.get("/", (req, res) => {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
-import { Stock } from '../../models/stocks.interface';
 import { DataService } from '../../services/data.service';
+// interfaces 
+import { Stock } from '../../models/stocks.interface';
+import { Ticker } from '../../models/tickers,interface'
 
 @Component({
   selector: 'app-table',
@@ -10,13 +12,20 @@ import { DataService } from '../../services/data.service';
 })
 export class TableComponent implements OnInit {
   stocks: Stock[] = [];
+  tickers: Ticker[] = [];
+  selectedTickers: string[] = [];
+
   totalRecords: number = 0; 
-  selectedPageSize = 10; // Default page size
+  selectedPageSize = 10; 
   pageSizes = [{label: '10', value: 10}, {label: '20', value: 20}, {label: '50', value: 50}];
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.getTickers().subscribe(data => {
+      this.tickers = data;
+    })
+  }
 
   loadStocksLazy(event: LazyLoadEvent | any) { 
     const start = event.first != null ? event.first : 0;
@@ -24,6 +33,7 @@ export class TableComponent implements OnInit {
 
     this.dataService.getDataSegment(start, rows).subscribe(data => {
       this.stocks = data.stocks;
+      console.log(this.stocks)
       this.totalRecords = data.totalRecords;
     });
   }

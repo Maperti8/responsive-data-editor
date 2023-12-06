@@ -2,30 +2,69 @@
     overflow-x: auto;
   }
   
-  .p-datatable-scrollable-body {
-    overflow-y: auto;
-  }
+.p-datatable-scrollable-body {
+  overflow-y: auto;
+}
 
-  .edit-buttons {
-    display: inline-flex;
-    margin-left: 10px; // Adjust as needed for positioning
-  
-    .small-button {
-      padding: 2px 4px; // Reduces the size of the button
-      margin-left: 2px; // Space between buttons
-      font-size: 0.8em; // Smaller icon size
-    }
-  }
-  
-  .p-inputtext {
-    width: 80%;
+.edit-buttons {
+  display: inline-flex;
+  margin-left: 10px; 
+
+  .small-button {
+    padding: 2px 4px; 
+    margin-left: 2px; 
+    font-size: 0.8em; 
+}
+}
+
+.p-inputtext {
+  width: 80%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  &:focus {
     border: none;
-    padding: 0;
-    margin: 0;
     box-shadow: none;
-    &:focus {
-      border: none;
-      box-shadow: none;
-    }
   }
-  
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr {
+  min-height: 60px; 
+  line-height: 60px; 
+}
+
+// Make search bar bigger
+:host ::ng-deep .p-multiselect {
+  min-width: 300px; 
+  height: 40px; 
+}
+
+// Add space between the search bar and the button
+:host .p-button {
+  margin-left: 10px;
+}
+
+// Make search bar bigger
+:host .p-multiselect {
+  min-width: 300px; 
+  height: 40px; 
+}
+
+// Add space between the search bar and the button
+:host.p-button {
+  margin-left: 10px;
+}
+
+:host ::ng-deep .p-calendar .p-inputtext {
+  width: 80%; 
+  height: 25px; 
+}
+
+:host ::ng-deep .p-calendar .p-button {
+  width: 25px; 
+  height: 25px; 
+}
+
+
+

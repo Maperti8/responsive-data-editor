@@ -20,7 +20,6 @@ export class DataService {
   }
 
   getDataSegment(start: number, limit: number): Observable<any> {
-    console.log('Service method invoked with pagination');
     const params = new HttpParams()
       .set('start', start.toString())
       .set('limit', limit.toString());
@@ -35,5 +34,10 @@ export class DataService {
       .set('symbols', selectedSymbols.join(','));
 
     return this.http.get(this.apiUrl + '/data/tickers/filtered', { params });
+  }
+
+  updateStock(stock: Stock): Observable<any> {
+    console.log(stock)
+    return this.http.put(`${this.apiUrl}/data/update/stocks`, stock);
   }
 }

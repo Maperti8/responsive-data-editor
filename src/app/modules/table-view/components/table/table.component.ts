@@ -23,34 +23,34 @@ export class TableComponent implements OnInit {
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.dataService.getTickers().subscribe(data => {
-      this.tickers = data;
-      console.log(this.tickers)
-    })
-  }
+ngOnInit(): void {
+  this.dataService.getTickers().subscribe(data => {
+    this.tickers = data;
+    console.log(this.tickers)
+  })
+}
+// Pagnation Lazy loading
+loadStocksLazy(event: LazyLoadEvent | any) { 
+  const start = event.first != null ? event.first : 0;
+  const rows = event.rows != null ? event.rows : this.selectedPageSize;
 
-  loadStocksLazy(event: LazyLoadEvent | any) { 
-    const start = event.first != null ? event.first : 0;
-    const rows = event.rows != null ? event.rows : this.selectedPageSize;
-
-    this.dataService.getDataSegment(start, rows).subscribe(data => {
+  this.dataService.getDataSegment(start, rows).subscribe(data => {
+    this.stocks = data.stocks;
+    this.totalRecords = data.totalRecords;
+  });
+}
+// search selected tickers
+onSearchClick() {
+  if (this.selectedTickers.length > 0) {
+    this.dataService.getDataByTickers(this.selectedTickers).subscribe(data => {
       this.stocks = data.stocks;
+
       this.totalRecords = data.totalRecords;
     });
+  } else {
+    console.log('No tickers selected');
   }
-
-  onSearchClick() {
-    if (this.selectedTickers.length > 0) {
-      this.dataService.getDataByTickers(this.selectedTickers).subscribe(data => {
-        this.stocks = data.stocks;
-
-        this.totalRecords = data.totalRecords;
-      });
-    } else {
-      console.log('No tickers selected');
-    }
-  } 
+} 
 
 onDescriptionFocus(stock: Stock, rowIndex: number) {
   // Save a copy of the original description when the user starts editing
@@ -59,15 +59,21 @@ onDescriptionFocus(stock: Stock, rowIndex: number) {
     console.log(stock.description, 'ngModel')
 }
 
-onDescriptionSave(stock: Stock, rowIndex: number) {
-  // Update the stock description in the stocks array
-  this.stocks[rowIndex].description = stock.description;
-
-  // Delete the cloned stock entry as it's no longer needed
+onSave(stock: Stock, rowIndex: number) {
+  this.stocks[rowIndex] = {...stock};
+  this.dataService.updateStock(this.stocks[rowIndex]).subscribe(
+    (response) => {
+      this.stocks[rowIndex]
+      console.log('Stock updated', response);
+    },
+    (error) => {
+      console.error('Error updating stock', error);
+    }
+  );
   delete this.clonedStocks[rowIndex];
 }
 
-onDescriptionCancel(stock: Stock, rowIndex: number) {
+onCancel(stock: Stock, rowIndex: number) {
   // Revert changes when the user clicks the cancel button
   if (this.clonedStocks[rowIndex]) {
     this.stocks[rowIndex] = { ...this.clonedStocks[rowIndex] };

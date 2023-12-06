@@ -45,8 +45,8 @@
           <ng-template pTemplate="input">
             <input pInputText type="text" [(ngModel)]="stock.description" (focus)="onDescriptionFocus(stock, i)">
             <div class="edit-buttons" style="text-align:center">
-              <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text p-button-success" (click)="onDescriptionSave(stock, i)"></button>
-              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onDescriptionCancel(stock, i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text p-button-success" (click)="onSave(stock, i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onCancel(stock, i)"></button>
             </div>
           </ng-template>
           <ng-template pTemplate="output" >

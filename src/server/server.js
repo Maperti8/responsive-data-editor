@@ -12,13 +12,15 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Import the data and ticker routers
-const dataRouter = require('./routes/data');
+// Import the routers
+const dataRouter = require('./routes/data-get');
+const dataSaveRouter = require('./routes/data-save');
 const tickerRouter = require('./routes/tickers'); 
 
-// Use the data and ticker routers
+// Use the routes
 app.use('/data', dataRouter);
 app.use('/tickers', tickerRouter); 
+app.use('/data/update', dataSaveRouter);
 
 // Root route
 app.get("/", (req, res) => {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 import { DataService } from '../../services/data.service';
 // interfaces 
-import { Stock } from '../../models/stocks.interface';
+import { Stock } from '../../models/stock.interface';
 import { Ticker } from '../../models/ticker.interface'
 
 @Component({
@@ -14,6 +14,8 @@ export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
   selectedTickers: string[] = [];
+
+  clonedStocks: { [s: string]: Stock } = {}; 
 
   totalRecords: number = 0; 
   selectedPageSize = 10; 
@@ -34,7 +36,6 @@ export class TableComponent implements OnInit {
 
     this.dataService.getDataSegment(start, rows).subscribe(data => {
       this.stocks = data.stocks;
-      console.log(this.stocks)
       this.totalRecords = data.totalRecords;
     });
   }
@@ -43,14 +44,30 @@ export class TableComponent implements OnInit {
     if (this.selectedTickers.length > 0) {
       this.dataService.getDataByTickers(this.selectedTickers).subscribe(data => {
         this.stocks = data.stocks;
-        console.log(this.stocks);
+
         this.totalRecords = data.totalRecords;
       });
     } else {
-      // Handle the case when no tickers are selected
       console.log('No tickers selected');
     }
   }
+
+  // inline editing 
+  editRow(stock: Stock, rowIndex: number) {
+    this.clonedStocks[stock.symbol] = { ...stock };
+  }
+
+  saveRow(stock: Stock, rowIndex: number) {
+    console.log('Data saved:', stock);  
+    delete this.clonedStocks[stock.symbol]; 
+  }
+  
+  cancelRow(stock: Stock, rowIndex: number) {
+    if (this.clonedStocks.hasOwnProperty(stock.symbol)) {
+      this.stocks[rowIndex] = this.clonedStocks[stock.symbol]; // Revert to the original data
+      delete this.clonedStocks[stock.symbol]; // Remove the cloned object reference
+    }
+  }  
 
   onPageSizeChange() {
     this.loadStocksLazy({ first: 0, rows: this.selectedPageSize });

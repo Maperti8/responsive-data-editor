@@ -1,4 +1,5 @@
 export interface Stock {
+    id: number;
     symbol: string;
     company: string;
     price: number;

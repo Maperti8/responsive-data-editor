@@ -24,14 +24,27 @@
     </tr>
   </ng-template>
 
-  <ng-template pTemplate="body" let-stock>
+  <ng-template pTemplate="body" let-stock let-i="rowIndex">
     <tr>
       <td>{{ stock.symbol }}</td>
       <td>{{ stock.company }}</td>
       <td>{{ stock.price }}</td>
       <td>{{ stock.change }}</td>
       <td>{{ stock.date }}</td>
-      <td>{{ stock.description }}</td>
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="stock.description" (blur)="cancelRow(stock, i)" />
+            <div class="edit-buttons">
+              <button pButton type="button" icon="pi pi-check" class="p-button-success small-button" (click)="saveRow(stock, i)"></button>
+              <button pButton type="button" icon="pi pi-times" class="p-button-danger small-button" (click)="cancelRow(stock, i)"></button>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="output" (click)="editRow(stock, i)">
+            {{stock.description}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
     </tr>
   </ng-template>
 

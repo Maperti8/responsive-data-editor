@@ -13,6 +13,7 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     MultiSelectModule, 
     ButtonModule,
+    InputTextModule,
   ]
 })
 export class TableViewModule { }

@@ -5,4 +5,44 @@
   .p-datatable-scrollable-body {
     overflow-y: auto;
   }
+
+  .edit-buttons {
+    display: inline-flex;
+    margin-left: 10px; // Adjust as needed for positioning
+  
+    .small-button {
+      padding: 2px 4px; // Reduces the size of the button
+      margin-left: 2px; // Space between buttons
+      font-size: 0.8em; // Smaller icon size
+    }
+  }
+  
+  .p-inputtext {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  
+  .inline-edit-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .inline-edit-icons {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+    .pi {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
   

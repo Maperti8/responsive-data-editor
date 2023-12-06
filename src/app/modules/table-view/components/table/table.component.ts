@@ -3,7 +3,7 @@ import { LazyLoadEvent } from 'primeng/api';
 import { DataService } from '../../services/data.service';
 // interfaces 
 import { Stock } from '../../models/stocks.interface';
-import { Ticker } from '../../models/tickers,interface'
+import { Ticker } from '../../models/ticker.interface'
 
 @Component({
   selector: 'app-table',
@@ -13,6 +13,7 @@ import { Ticker } from '../../models/tickers,interface'
 export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
+
   selectedTickers: string[] = [];
 
   totalRecords: number = 0; 
@@ -24,6 +25,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getTickers().subscribe(data => {
       this.tickers = data;
+      console.log(this.tickers)
     })
   }
 

@@ -2,8 +2,9 @@
   [options]="tickers"
   [(ngModel)]="selectedTickers"
   [filter]="true"
-  optionLabel=""
-  placeholder="Select tickers">
+  placeholder="Select tickers"
+  [optionValue]="'id'"
+  [optionLabel]="'label'">
 </p-multiSelect>
 
 <p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)"

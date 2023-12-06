@@ -50,24 +50,30 @@ export class TableComponent implements OnInit {
     } else {
       console.log('No tickers selected');
     }
-  }
+  } 
 
-  // inline editing 
-  editRow(stock: Stock, rowIndex: number) {
-    this.clonedStocks[stock.symbol] = { ...stock };
-  }
+onDescriptionFocus(stock: Stock, rowIndex: number) {
+  // Save a copy of the original description when the user starts editing
+    this.clonedStocks[rowIndex] = { ...stock };
+    console.log(this.clonedStocks[rowIndex].id, 'here')
+    console.log(stock.description, 'ngModel')
+}
 
-  saveRow(stock: Stock, rowIndex: number) {
-    console.log('Data saved:', stock);  
-    delete this.clonedStocks[stock.symbol]; 
+onDescriptionSave(stock: Stock, rowIndex: number) {
+  // Update the stock description in the stocks array
+  this.stocks[rowIndex].description = stock.description;
+
+  // Delete the cloned stock entry as it's no longer needed
+  delete this.clonedStocks[rowIndex];
+}
+
+onDescriptionCancel(stock: Stock, rowIndex: number) {
+  // Revert changes when the user clicks the cancel button
+  if (this.clonedStocks[rowIndex]) {
+    this.stocks[rowIndex] = { ...this.clonedStocks[rowIndex] };
+    delete this.clonedStocks[rowIndex];
   }
-  
-  cancelRow(stock: Stock, rowIndex: number) {
-    if (this.clonedStocks.hasOwnProperty(stock.symbol)) {
-      this.stocks[rowIndex] = this.clonedStocks[stock.symbol]; // Revert to the original data
-      delete this.clonedStocks[stock.symbol]; // Remove the cloned object reference
-    }
-  }  
+}
 
   onPageSizeChange() {
     this.loadStocksLazy({ first: 0, rows: this.selectedPageSize });

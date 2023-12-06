@@ -18,7 +18,7 @@
   }
   
   .p-inputtext {
-    width: 100%;
+    width: 80%;
     border: none;
     padding: 0;
     margin: 0;
@@ -26,23 +26,6 @@
     &:focus {
       border: none;
       box-shadow: none;
-    }
-  }
-  
-  .inline-edit-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .inline-edit-icons {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  
-    .pi {
-      font-size: 18px;
-      margin-right: 5px;
     }
   }
   

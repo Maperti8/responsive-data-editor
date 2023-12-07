@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TableViewComponent {
 
+  editedRow: any = null;
+  
+  onRowEdit(rowData: any) {
+    this.editedRow = rowData;
+  }
 }

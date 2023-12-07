@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
+// services
 import { DataService } from '../../services/data.service';
 // interfaces 
 import { Stock } from '../../models/stock.interface';
 import { Ticker } from '../../models/ticker.interface'
+// sweetalert 
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-table',
@@ -14,6 +17,8 @@ export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
   selectedTickers: string[] = [];
+
+  @Output() editRow = new EventEmitter<any>();
 
   clonedStocks: { [s: string]: Stock } = {}; 
 
@@ -65,6 +70,13 @@ onSave(stock: Stock, rowIndex: number) {
     (response) => {
       this.stocks[rowIndex]
       console.log('Stock updated', response);
+      Swal.fire({
+        title: 'Stock updated!',
+        icon: 'success',
+        customClass: {
+          popup: 'swal2-dark'
+        }
+      });
     },
     (error) => {
       console.error('Error updating stock', error);
@@ -79,6 +91,11 @@ onCancel(stock: Stock, rowIndex: number) {
     this.stocks[rowIndex] = { ...this.clonedStocks[rowIndex] };
     delete this.clonedStocks[rowIndex];
   }
+}
+
+onEdit(stock: Stock, rowIndex: number) {
+  this.editRow.emit(stock);
+  console.log('edit')
 }
 
   onPageSizeChange() {

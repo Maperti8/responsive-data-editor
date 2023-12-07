@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
+
+  @Input() rowData: any;
+
+  ngOnChanges() {
+    if (this.rowData) {
+     console.log('here', this.rowData)
+    }
+  }
 
 }

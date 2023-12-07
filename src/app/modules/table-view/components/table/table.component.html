@@ -1,13 +1,15 @@
-<p-multiSelect
-  [options]="tickers"
-  [(ngModel)]="selectedTickers"
-  [filter]="true"
-  placeholder="Select tickers"
-  [optionValue]="'id'"
-  [optionLabel]="'label'">
-</p-multiSelect>
+<div class="search">
+  <p-multiSelect
+    [options]="tickers"
+    [(ngModel)]="selectedTickers"
+    [filter]="true"
+    placeholder="Select tickers"
+    [optionValue]="'id'"
+    [optionLabel]="'label'">
+  </p-multiSelect>
 
-<button pButton type="button" label="Search" (click)="onSearchClick()"></button>
+  <button pButton type="button" label="Search" (click)="onSearchClick()"></button>
+</div>  
 
 <p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)"
   [paginator]="true" [rows]="selectedPageSize" [totalRecords]="totalRecords"
@@ -33,7 +35,7 @@
       <td pEditableColumn>
         <p-cellEditor>
           <ng-template pTemplate="input">
-            <p-calendar [(ngModel)]="stock.date" [showIcon]="true" inputId="icon"></p-calendar>
+            <p-calendar [(ngModel)]="stock.date" inputId="icon" appendTo="body"></p-calendar>
           </ng-template>
           <ng-template pTemplate="output">
             {{ stock.date | date: 'shortDate' }}
@@ -47,6 +49,7 @@
             <div class="edit-buttons" style="text-align:center">
               <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text p-button-success" (click)="onSave(stock, i)"></button>
               <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onCancel(stock, i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-file-edit" class="p-button-rounded p-button-text" (click)="onEdit(stock, i)"></button>
             </div>
           </ng-template>
           <ng-template pTemplate="output" >

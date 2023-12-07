@@ -48,8 +48,8 @@
             <input pInputText type="text" [(ngModel)]="stock.description" (focus)="onDescriptionFocus(stock, i)">
             <div class="edit-buttons" style="text-align:center">
               <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text p-button-success" (click)="onSave(stock, i)"></button>
-              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onCancel(stock, i)"></button>
-              <button pButton pRipple type="button" icon="pi pi-file-edit" class="p-button-rounded p-button-text" (click)="onEdit(stock, i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onCancel(i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-file-edit" class="p-button-rounded p-button-text" (click)="onEdit(stock)"></button>
             </div>
           </ng-template>
           <ng-template pTemplate="output" >
@@ -59,7 +59,6 @@
       </td>
     </tr>
   </ng-template>
-
   <!-- Custom Paginator Left Template -->
   <ng-template pTemplate="paginatorleft" let-state>
     <p-dropdown [options]="pageSizes" [(ngModel)]="selectedPageSize" (onChange)="onPageSizeChange()" styleClass="paginator-dropdown"></p-dropdown>

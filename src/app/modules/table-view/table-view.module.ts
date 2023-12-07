@@ -8,6 +8,7 @@ import { TableViewComponent } from './components/table-view/table-view.component
 import { TableViewRoutingModule } from './table-view-routing.module';
 // forms module
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 // primeNG table 
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
@@ -15,6 +16,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { CalendarModule } from 'primeng/calendar';
     ButtonModule,
     InputTextModule,
     CalendarModule,
+    ReactiveFormsModule,
+    CardModule,
   ]
 })
 export class TableViewModule { }

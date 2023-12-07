@@ -31,7 +31,6 @@ export class TableComponent implements OnInit {
 ngOnInit(): void {
   this.dataService.getTickers().subscribe(data => {
     this.tickers = data;
-    console.log(this.tickers)
   })
 }
 // Pagnation Lazy loading
@@ -53,15 +52,12 @@ onSearchClick() {
       this.totalRecords = data.totalRecords;
     });
   } else {
-    console.log('No tickers selected');
   }
 } 
 
 onDescriptionFocus(stock: Stock, rowIndex: number) {
   // Save a copy of the original description when the user starts editing
     this.clonedStocks[rowIndex] = { ...stock };
-    console.log(this.clonedStocks[rowIndex].id, 'here')
-    console.log(stock.description, 'ngModel')
 }
 
 onSave(stock: Stock, rowIndex: number) {
@@ -69,7 +65,6 @@ onSave(stock: Stock, rowIndex: number) {
   this.dataService.updateStock(this.stocks[rowIndex]).subscribe(
     (response) => {
       this.stocks[rowIndex]
-      console.log('Stock updated', response);
       Swal.fire({
         title: 'Stock updated!',
         icon: 'success',
@@ -85,7 +80,7 @@ onSave(stock: Stock, rowIndex: number) {
   delete this.clonedStocks[rowIndex];
 }
 
-onCancel(stock: Stock, rowIndex: number) {
+onCancel(rowIndex: number) {
   // Revert changes when the user clicks the cancel button
   if (this.clonedStocks[rowIndex]) {
     this.stocks[rowIndex] = { ...this.clonedStocks[rowIndex] };
@@ -93,9 +88,8 @@ onCancel(stock: Stock, rowIndex: number) {
   }
 }
 
-onEdit(stock: Stock, rowIndex: number) {
+onEdit(stock: Stock) {
   this.editRow.emit(stock);
-  console.log('edit')
 }
 
   onPageSizeChange() {

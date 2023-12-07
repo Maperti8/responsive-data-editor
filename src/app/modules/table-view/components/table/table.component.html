@@ -1,1 +1,67 @@
-<h1>TABLE</h1>
+<div class="search">
+  <p-multiSelect
+    [options]="tickers"
+    [(ngModel)]="selectedTickers"
+    [filter]="true"
+    placeholder="Select tickers"
+    [optionValue]="'id'"
+    [optionLabel]="'label'">
+  </p-multiSelect>
+
+  <button pButton type="button" label="Search" (click)="onSearchClick()"></button>
+</div>  
+
+<p-table [value]="stocks" [lazy]="true" (onLazyLoad)="loadStocksLazy($event)"
+  [paginator]="true" [rows]="selectedPageSize" [totalRecords]="totalRecords"
+  [scrollable]="true" scrollHeight="800px">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Symbol</th>
+      <th>Company</th>
+      <th>Price</th>
+      <th>Change</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-stock let-i="rowIndex">
+    <tr>
+      <td>{{ stock.symbol }}</td>
+      <td>{{ stock.company }}</td>
+      <td>{{ stock.price }}</td>
+      <td>{{ stock.change }}</td>
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-calendar [(ngModel)]="stock.date" inputId="icon" appendTo="body"></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ stock.date | date: 'shortDate' }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td pEditableColumn>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="stock.description" (focus)="onDescriptionFocus(stock, i)">
+            <div class="edit-buttons" style="text-align:center">
+              <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-text p-button-success" (click)="onSave(stock, i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger" (click)="onCancel(i)"></button>
+              <button pButton pRipple type="button" icon="pi pi-file-edit" class="p-button-rounded p-button-text" (click)="onEdit(stock)"></button>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="output" >
+            {{stock.description}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+    </tr>
+  </ng-template>
+  <!-- Custom Paginator Left Template -->
+  <ng-template pTemplate="paginatorleft" let-state>
+    <p-dropdown [options]="pageSizes" [(ngModel)]="selectedPageSize" (onChange)="onPageSizeChange()" styleClass="paginator-dropdown"></p-dropdown>
+  </ng-template>
+
+</p-table>

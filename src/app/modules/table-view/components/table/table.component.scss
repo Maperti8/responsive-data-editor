@@ -1,0 +1,67 @@
+:host ::ng-deep .p-datatable .p-datatable-wrapper {
+    overflow-x: auto;
+  }
+  
+.p-datatable-scrollable-body {
+  overflow-y: auto;
+}
+
+.edit-buttons {
+  display: inline-flex;
+  margin-left: 10px; 
+
+  .small-button {
+    padding: 2px px; 
+    margin-left: 2px; 
+    font-size: 0.4em; 
+}
+}
+
+.search {
+  margin-top: 10px;
+}
+
+.p-inputtext {
+  width: 85%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+  min-height: 60px; 
+  line-height: 60px; 
+}
+
+::ng-deep .p-multiselect {
+  min-width: 300px;  
+  margin-bottom: 10px;
+}
+
+.p-multiselect {
+  min-width: 300px; 
+  height: 40px; 
+}
+
+.p-button {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.edit-buttons {
+  margin-left: 0px;
+}
+
+::ng-deep .p-element .p-button-rounded {
+  margin-left: 0px;
+} 
+
+
+
+
+

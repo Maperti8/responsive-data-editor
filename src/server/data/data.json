@@ -1,56 +1,382 @@
 {
-    "stocks": [
-      { "symbol": "AAPL", "company": "Apple Inc.", "price": 145.30, "change": "+1.25%" },
-      { "symbol": "MSFT", "company": "Microsoft Corporation", "price": 305.22, "change": "-0.35%" },
-      { "symbol": "GOOGL", "company": "Alphabet Inc.", "price": 2729.34, "change": "+0.75%" },
-      { "symbol": "AMZN", "company": "Amazon.com Inc.", "price": 3512.15, "change": "-1.05%" },
-      { "symbol": "TSLA", "company": "Tesla Inc.", "price": 719.69, "change": "+2.21%" },
-      { "symbol": "FB", "company": "Meta Platforms, Inc.", "price": 358.32, "change": "+1.33%" },
-      { "symbol": "BRK.A", "company": "Berkshire Hathaway Inc.", "price": 421000, "change": "+0.52%" },
-      { "symbol": "V", "company": "Visa Inc.", "price": 236.45, "change": "+0.65%" },
-      { "symbol": "JNJ", "company": "Johnson & Johnson", "price": 173.21, "change": "-0.85%" },
-      { "symbol": "WMT", "company": "Walmart Inc.", "price": 143.85, "change": "+0.23%" },
-      { "symbol": "BABA", "company": "Alibaba Group Holding Ltd", "price": 210.32, "change": "-1.23%" },
-      { "symbol": "JPM", "company": "JPMorgan Chase & Co.", "price": 158.67, "change": "+0.87%" },
-      { "symbol": "XOM", "company": "Exxon Mobil Corporation", "price": 60.95, "change": "-0.67%" },
-      { "symbol": "BAC", "company": "Bank of America Corp", "price": 37.85, "change": "+0.56%" },
-      { "symbol": "WFC", "company": "Wells Fargo & Company", "price": 45.22, "change": "-0.44%" },
-      { "symbol": "C", "company": "Citigroup Inc.", "price": 68.44, "change": "+1.12%" },
-      { "symbol": "GM", "company": "General Motors Company", "price": 58.67, "change": "-0.95%" },
-      { "symbol": "T", "company": "AT&T Inc.", "price": 29.76, "change": "+0.50%" },
-      { "symbol": "F", "company": "Ford Motor Company", "price": 15.33, "change": "-0.78%" },
-      { "symbol": "VZ", "company": "Verizon Communications Inc.", "price": 56.14, "change": "+0.64%" },
-      { "symbol": "CVX", "company": "Chevron Corporation", "price": 102.48, "change": "+1.19%" },
-      { "symbol": "KO", "company": "The Coca-Cola Company", "price": 54.85, "change": "-0.36%" },
-      { "symbol": "PG", "company": "Procter & Gamble Company", "price": 133.18, "change": "+0.42%" },
-      { "symbol": "PEP", "company": "PepsiCo, Inc.", "price": 142.75, "change": "-0.52%" },
-      { "symbol": "INTC", "company": "Intel Corporation", "price": 55.22, "change": "+1.05%" },
-      { "symbol": "CSCO", "company": "Cisco Systems, Inc.", "price": 53.77, "change": "-1.01%" },
-      { "symbol": "ORCL", "company": "Oracle Corporation", "price": 88.69, "change": "+0.88%" },
-      { "symbol": "IBM", "company": "International Business Machines Corporation", "price": 146.48, "change": "+0.66%" },
-      { "symbol": "NKE", "company": "NIKE, Inc.", "price": 134.56, "change": "+0.73%" },
-      { "symbol": "MCD", "company": "McDonald's Corporation", "price": 238.67, "change": "-0.42%" },
-      { "symbol": "BA", "company": "Boeing Company", "price": 225.42, "change": "-1.15%" },
-      { "symbol": "MMM", "company": "3M Company", "price": 182.77, "change": "+0.68%" },
-      { "symbol": "GE", "company": "General Electric Company", "price": 105.33, "change": "-0.87%" },
-      { "symbol": "CAT", "company": "Caterpillar Inc.", "price": 219.54, "change": "+0.35%" },
-      { "symbol": "MRK", "company": "Merck & Co., Inc.", "price": 79.22, "change": "+0.57%" },
-      { "symbol": "PFE", "company": "Pfizer Inc.", "price": 38.77, "change": "-0.52%" },
-      { "symbol": "JNJ", "company": "Johnson & Johnson", "price": 162.24, "change": "+0.61%" },
-      { "symbol": "GILD", "company": "Gilead Sciences, Inc.", "price": 68.33, "change": "+0.47%" },
-      { "symbol": "BMY", "company": "Bristol-Myers Squibb Company", "price": 63.52, "change": "-0.76%" },
-      { "symbol": "ABBV", "company": "AbbVie Inc.", "price": 116.85, "change": "+1.23%" },
-      { "symbol": "AMGN", "company": "Amgen Inc.", "price": 238.67, "change": "-0.42%" },
-      { "symbol": "LLY", "company": "Eli Lilly and Company", "price": 197.85, "change": "+0.58%" },
-      { "symbol": "TMO", "company": "Thermo Fisher Scientific Inc.", "price": 482.77, "change": "-0.23%" },
-      { "symbol": "DHR", "company": "Danaher Corporation", "price": 285.44, "change": "+0.78%" },
-      { "symbol": "SYK", "company": "Stryker Corporation", "price": 256.33, "change": "-0.66%" },
-      { "symbol": "BDX", "company": "Becton, Dickinson and Company", "price": 248.67, "change": "+0.34%" },
-      { "symbol": "ABT", "company": "Abbott Laboratories", "price": 120.54, "change": "-0.89%" },
-      { "symbol": "MDT", "company": "Medtronic plc", "price": 108.22, "change": "+0.67%" },
-      { "symbol": "ISRG", "company": "Intuitive Surgical, Inc.", "price": 821.33, "change": "+1.05%" },
-      { "symbol": "BSX", "company": "Boston Scientific Corporation", "price": 41.22, "change": "-0.56%" }
-    ]
-  }
-  
-  
+  "stocks": [
+    {
+      "id": 1,
+      "symbol": "AAPL",
+      "company": "Apple Inc.",
+      "price": 145.3,
+      "change": "+1.25%",
+      "date": "2023-12-06",
+      "description": "Ldweddddddddddddddddddddddddddddddfsdfsdf"
+    },
+    {
+      "id": 2,
+      "symbol": "MSFT",
+      "company": "Microsoft Corporation",
+      "price": 305.22,
+      "change": "-0.35%",
+      "date": "2023-12-05",
+      "description": "Sed do eiusmo Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c"
+    },
+    {
+      "id": 3,
+      "symbol": "GOOGL",
+      "company": "Alphabet Inc.",
+      "price": 2729.34,
+      "change": "+0.75%",
+      "date": "2023-12-04",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 4,
+      "symbol": "AMZN",
+      "company": "Amazon.com Inc.",
+      "price": 3512.15,
+      "change": "-1.05%",
+      "date": "2023-12-03",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 5,
+      "symbol": "TSLA",
+      "company": "Tesla Inc.",
+      "price": 719.69,
+      "change": "+2.21%",
+      "date": "2023-12-02",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 6,
+      "symbol": "BA",
+      "company": "Boeing Company",
+      "price": 225.42,
+      "change": "-1.15%",
+      "date": "2023-11-30",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 7,
+      "symbol": "MMM",
+      "company": "3M Company",
+      "price": 182.77,
+      "change": "+0.68%",
+      "date": "2023-11-29",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 8,
+      "symbol": "GE",
+      "company": "General Electric Company",
+      "price": 105.33,
+      "change": "-0.87%",
+      "date": "2023-11-28",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 10,
+      "symbol": "CAT",
+      "company": "Caterpillar Inc.",
+      "price": 219.54,
+      "change": "+0.35%",
+      "date": "2023-11-27",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 11,
+      "symbol": "MRK",
+      "company": "Merck & Co., Inc.",
+      "price": 79.22,
+      "change": "+0.57%",
+      "date": "2023-11-26",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 12,
+      "symbol": "PFE",
+      "company": "Pfizer Inc.",
+      "price": 38.77,
+      "change": "-0.52%",
+      "date": "2023-11-25",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 13,
+      "symbol": "JNJ",
+      "company": "Johnson & Johnson",
+      "price": 162.24,
+      "change": "+0.61%",
+      "date": "2023-11-24",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 14,
+      "symbol": "GILD",
+      "company": "Gilead Sciences, Inc.",
+      "price": 68.33,
+      "change": "+0.47%",
+      "date": "2023-11-23",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 15,
+      "symbol": "BMY",
+      "company": "Bristol-Myers Squibb Company",
+      "price": 63.52,
+      "change": "-0.76%",
+      "date": "2023-11-22",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 16,
+      "symbol": "ABBV",
+      "company": "AbbVie Inc.",
+      "price": 116.85,
+      "change": "+1.23%",
+      "date": "2023-11-21",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 17,
+      "symbol": "AMGN",
+      "company": "Amgen Inc.",
+      "price": 238.67,
+      "change": "-0.42%",
+      "date": "2023-11-20",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 18,
+      "symbol": "LLY",
+      "company": "Eli Lilly and Company",
+      "price": 197.85,
+      "change": "+0.58%",
+      "date": "2023-11-19",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 19,
+      "symbol": "TMO",
+      "company": "Thermo Fisher Scientific Inc.",
+      "price": 482.77,
+      "change": "-0.23%",
+      "date": "2023-11-18",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 20,
+      "symbol": "DHR",
+      "company": "Danaher Corporation",
+      "price": 285.44,
+      "change": "+0.78%",
+      "date": "2023-11-17",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 21,
+      "symbol": "SYK",
+      "company": "Stryker Corporation",
+      "price": 256.33,
+      "change": "-0.66%",
+      "date": "2023-11-16",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 22,
+      "symbol": "BDX",
+      "company": "Becton, Dickinson and Company",
+      "price": 248.67,
+      "change": "+0.34%",
+      "date": "2023-11-15",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 23,
+      "symbol": "ABT",
+      "company": "Abbott Laboratories",
+      "price": 120.54,
+      "change": "-0.89%",
+      "date": "2023-11-14",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 24,
+      "symbol": "MDT",
+      "company": "Medtronic plc",
+      "price": 108.22,
+      "change": "+0.67%",
+      "date": "2023-11-13",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 25,
+      "symbol": "ISRG",
+      "company": "Intuitive Surgical, Inc.",
+      "price": 821.33,
+      "change": "+1.05%",
+      "date": "2023-11-12",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 26,
+      "symbol": "BSX",
+      "company": "Boston Scientific Corporation",
+      "price": 41.22,
+      "change": "-0.56%",
+      "date": "2023-11-11",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 27,
+      "symbol": "CAT",
+      "company": "Caterpillar Inc.",
+      "price": 219.54,
+      "change": "+0.35%",
+      "date": "2023-11-27",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 28,
+      "symbol": "MRK",
+      "company": "Merck & Co., Inc.",
+      "price": 79.22,
+      "change": "+0.57%",
+      "date": "2023-11-26",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 29,
+      "symbol": "PFE",
+      "company": "Pfizer Inc.",
+      "price": 38.77,
+      "change": "-0.52%",
+      "date": "2023-11-25",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 30,
+      "symbol": "JNJ",
+      "company": "Johnson & Johnson",
+      "price": 162.24,
+      "change": "+0.61%",
+      "date": "2023-11-24",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 31,
+      "symbol": "GILD",
+      "company": "Gilead Sciences, Inc.",
+      "price": 68.33,
+      "change": "+0.47%",
+      "date": "2023-11-23",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 32,
+      "symbol": "BMY",
+      "company": "Bristol-Myers Squibb Company",
+      "price": 63.52,
+      "change": "-0.76%",
+      "date": "2023-11-22",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 33,
+      "symbol": "ABBV",
+      "company": "AbbVie Inc.",
+      "price": 116.85,
+      "change": "+1.23%",
+      "date": "2023-11-21",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 34,
+      "symbol": "AMGN",
+      "company": "Amgen Inc.",
+      "price": 238.67,
+      "change": "-0.42%",
+      "date": "2023-11-20",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 35,
+      "symbol": "LLY",
+      "company": "Eli Lilly and Company",
+      "price": 197.85,
+      "change": "+0.58%",
+      "date": "2023-11-19",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 36,
+      "symbol": "TMO",
+      "company": "Thermo Fisher Scientific Inc.",
+      "price": 482.77,
+      "change": "-0.23%",
+      "date": "2023-11-18",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 37,
+      "symbol": "DHR",
+      "company": "Danaher Corporation",
+      "price": 285.44,
+      "change": "+0.78%",
+      "date": "2023-11-17",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 38,
+      "symbol": "SYK",
+      "company": "Stryker Corporation",
+      "price": 256.33,
+      "change": "-0.66%",
+      "date": "2023-11-16",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": 39,
+      "symbol": "BDX",
+      "company": "Becton, Dickinson and Company",
+      "price": 248.67,
+      "change": "+0.34%",
+      "date": "2023-11-15",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 40,
+      "symbol": "ABT",
+      "company": "Abbott Laboratories",
+      "price": 120.54,
+      "change": "-0.89%",
+      "date": "2023-11-14",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": 41,
+      "symbol": "MDT",
+      "company": "Medtronic plc",
+      "price": 108.22,
+      "change": "+0.67%",
+      "date": "2023-11-13",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 42,
+      "symbol": "ISRG",
+      "company": "Intuitive Surgical, Inc.",
+      "price": 821.33,
+      "change": "+1.05%",
+      "date": "2023-11-12",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+      "id": 43,
+      "symbol": "BSX",
+      "company": "Boston Scientific Corporation",
+      "price": 41.22,
+      "change": "-0.56%",
+      "date": "2023-11-11",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ]
+}

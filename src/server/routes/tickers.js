@@ -3,19 +3,23 @@ const router = express.Router();
 const fs = require('fs').promises;
 const path = require('path');
 
-router.get('/data', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    // Assuming the 'data.json' file is in the 'assets' folder
     const filePath = path.join(__dirname, '../data/data.json');
-
-    // Read the content of the JSON file
     const fileContent = await fs.readFile(filePath, 'utf-8');
-
-    // Parse the JSON content
     const data = JSON.parse(fileContent);
 
-    // Send the data as JSON
-    res.json(data);
+    if (data && Array.isArray(data.stocks)) {
+      const stocks = data.stocks.map((stock, index) => ({
+        label: stock.symbol,
+        id: stock.symbol, 
+      }));
+
+      res.json(stocks);
+    } else {
+      console.error('Invalid data', data);
+      res.status(500).json({ error: 'Internal Server Error - Invalid data' });
+    }
   } catch (error) {
     console.error('Error reading or parsing JSON file:', error);
     res.status(500).json({ error: 'Internal Server Error' });

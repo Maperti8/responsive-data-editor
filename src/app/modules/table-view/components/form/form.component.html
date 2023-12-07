@@ -1,9 +1,48 @@
-<div class="grid grid-cols-3 gap-4">
-    <div class="bg-blue-500 text-white p-4">1</div>
-    <div class="bg-green-500 text-white p-4">2</div>
-    <div class="bg-red-500 text-white p-4">3</div>
-    <div class="bg-yellow-500 text-white p-4">4</div>
-    <div class="bg-purple-500 text-white p-4">5</div>
-    <div class="bg-pink-500 text-white p-4">6</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="grid grid-cols-2 gap-4 p-8 text-white">
+  <!-- ID -->
+  <div>
+    <label for="id">ID</label>
+    <input type="text" id="id" formControlName="id" class="p-inputtext w-full" [ngModel]="rowData.id" readonly>
   </div>
-  
+
+  <!-- Symbol -->
+  <div>
+    <label for="symbol">Symbol</label>
+    <input type="text" id="symbol" formControlName="symbol" class="p-inputtext w-full" [ngModel]="rowData.symbol" readonly>
+  </div>
+
+  <!-- Company -->
+  <div>
+    <label for="company">Company</label>
+    <input type="text" id="company" formControlName="company" class="p-inputtext w-full" [ngModel]="rowData.company" readonly>
+  </div>
+
+  <!-- Price -->
+  <div>
+    <label for="price">Price</label>
+    <input type="text" id="price" formControlName="price" class="p-inputtext w-full" [ngModel]="rowData.price">
+  </div>
+
+  <!-- Change -->
+  <div>
+    <label for="change">Change</label>
+    <input type="text" id="change" formControlName="change" class="p-inputtext w-full" [ngModel]="rowData.change">
+  </div>
+
+  <!-- Date -->
+  <div>
+    <label for="date">Date</label>
+    <input type="text" id="date" formControlName="date" class="p-inputtext w-full" [ngModel]="rowData.date">
+  </div>
+
+  <!-- Description -->
+  <div class="col-span-2">
+    <label for="description">Description</label>
+    <textarea id="description" rows="5" cols="30" formControlName="description" class="p-inputtext w-full h-32" [ngModel]="rowData.description"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="col-span-2 flex justify-end">
+    <button type="submit" pButton type="button" label="Submit" class="p-button-sm" style="max-height: 50px; margin-top: 25px;"></button>
+  </div>
+</form>

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+// interfaces 
+import { Stock } from '../../models/stock.interface'
 
 @Component({
   selector: 'app-form',
@@ -8,6 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent {
   @Input() rowData: any;
+  stock: Stock[] = [];
+
   myForm: FormGroup = this.fb.group({
     id: [null, Validators.required],
     symbol: [null, Validators.required],
@@ -22,12 +26,12 @@ export class FormComponent {
 
   ngOnChanges() {
     if (this.rowData) {
-     console.log('here', this.rowData)
+      this.stock = this.rowData
+     console.log('here', this.stock)
     }
   }
 
    onSubmit() {
     console.log(this.myForm.value);
   }
-
 }

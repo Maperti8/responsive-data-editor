@@ -17,13 +17,10 @@ export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
   selectedTickers: string[] = [];
-
-  @Output() editRow = new EventEmitter<any>();
-
   clonedStocks: { [s: string]: Stock } = {}; 
-
   totalRecords: number = 0; 
   selectedPageSize = 10; 
+  @Output() editRow = new EventEmitter<any>();
   pageSizes = [{label: '10', value: 10}, {label: '20', value: 20}, {label: '50', value: 50}];
 
   constructor(private dataService: DataService) {}

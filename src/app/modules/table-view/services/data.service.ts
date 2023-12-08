@@ -27,9 +27,7 @@ export class DataService {
     return this.http.get(this.apiUrl + '/data', { params });
   }
 
-  getDataByTickers(selectedSymbols: string[]): Observable<any> {
-    console.log('Service method invoked with selected symbols', selectedSymbols);
-    
+  getDataByTickers(selectedSymbols: string[]): Observable<any> {  
     const params = new HttpParams()
       .set('symbols', selectedSymbols.join(','));
 

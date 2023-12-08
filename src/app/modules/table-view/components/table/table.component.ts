@@ -45,7 +45,6 @@ onSearchClick() {
   if (this.selectedTickers.length > 0) {
     this.dataService.getDataByTickers(this.selectedTickers).subscribe(data => {
       this.stocks = data.stocks;
-
       this.totalRecords = data.totalRecords;
     });
   } else {
@@ -53,15 +52,16 @@ onSearchClick() {
 } 
 
 onDescriptionFocus(stock: Stock, rowIndex: number) {
-  // Save a copy of the original description when the user starts editing
+  // Save a copy of the original 
     this.clonedStocks[rowIndex] = { ...stock };
 }
 
 onSave(stock: Stock, rowIndex: number) {
-  this.stocks[rowIndex] = {...stock};
-  this.dataService.updateStock(this.stocks[rowIndex]).subscribe(
-    (response) => {
-      this.stocks[rowIndex]
+  const updatedStock = { ...stock };
+
+  this.dataService.updateStock(updatedStock).subscribe(
+    () => {
+      this.stocks[rowIndex] = updatedStock;
       Swal.fire({
         title: 'Stock updated!',
         icon: 'success',

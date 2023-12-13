@@ -17,7 +17,7 @@ export class TableComponent implements OnInit {
   stocks: Stock[] = [];
   tickers: Ticker[] = [];
   selectedTickers: string[] = [];
-  clonedStocks: { [s: string]: Stock } = {}; 
+  stockCopy: { [s: string]: Stock } = {}; 
   totalRecords: number = 0; 
   selectedPageSize = 10; 
   @Output() editRow = new EventEmitter<any>();
@@ -53,7 +53,7 @@ onSearchClick() {
 
 onDescriptionFocus(stock: Stock, rowIndex: number) {
   // Save a copy of the original 
-    this.clonedStocks[rowIndex] = { ...stock };
+    this.stockCopy[rowIndex] = { ...stock };
 }
 
 onSave(stock: Stock, rowIndex: number) {
@@ -74,14 +74,14 @@ onSave(stock: Stock, rowIndex: number) {
       console.error('Error updating stock', error);
     }
   );
-  delete this.clonedStocks[rowIndex];
+  delete this.stockCopy[rowIndex];
 }
 
 onCancel(rowIndex: number) {
   // Revert changes when the user clicks the cancel button
-  if (this.clonedStocks[rowIndex]) {
-    this.stocks[rowIndex] = { ...this.clonedStocks[rowIndex] };
-    delete this.clonedStocks[rowIndex];
+  if (this.stockCopy[rowIndex]) {
+    this.stocks[rowIndex] = { ...this.stockCopy[rowIndex] };
+    delete this.stockCopy[rowIndex];
   }
 }
 

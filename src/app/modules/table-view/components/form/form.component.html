@@ -1,32 +1,42 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="formgrid grid">
-  <div class = "field col-12 md:col-4">
+<form [formGroup]="stockForm" (ngSubmit)="onSubmit()" class="formgrid grid">
+  <div class="field col-12 md:col-4">
     <label for="id">ID</label>
-    <input type="text" id="id" formControlName="id" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [ngModel]="rowData.id" readonly>
+    <input type="text" id="id" formControlName="id" [ngModel]="rowData.id" readonly
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
   </div>
 
-  <div class = "field col-12 md:col-4">
+  <div class="field col-12 md:col-4">
     <label for="symbol">Symbol</label>
-    <input type="text" id="symbol" formControlName="symbol" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [ngModel]="rowData.symbol" readonly>
+    <input type="text" id="symbol" formControlName="symbol" [ngModel]="rowData.symbol" readonly
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
   </div>
 
-  <div class = "field col-12 md:col-4">
+  <div class="field col-12 md:col-4">
     <label for="company">Company</label>
-    <input type="text" id="company" formControlName="company" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [ngModel]="rowData.company" readonly>
+    <input type="text" id="company" formControlName="company" [ngModel]="rowData.company" readonly
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
   </div>
 
-  <div class = "field col-12 md:col-4">
+  <div class="field col-12 md:col-4">
     <label for="price">Price</label>
-    <input type="text" id="price" formControlName="price" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [ngModel]="rowData.price">
+    <input type="text" id="price" formControlName="price" [ngModel]="rowData.price" radonly
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
   </div>
 
-  <div class = "field col-12 md:col-4">
+  <div class="field col-12 md:col-4">
     <label for="change">Change</label>
-    <input type="text" id="change" formControlName="change" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [ngModel]="rowData.change">
+    <input type="text" id="change" formControlName="change" [ngModel]="rowData.change" readonly
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
   </div>
 
   <div class="field col-12 md:col-4">
     <label for="date">Date</label>
-    <input type="text" id="date" formControlName="date" class="p-inputtext w-full" [ngModel]="rowData.date">
+    <ng-template pTemplate="input">
+      <p-calendar [(ngModel)]="rowData.date" inputId="icon" appendTo="body"></p-calendar>
+    </ng-template>
+    <ng-template pTemplate="output">
+      {{ rowData.date | date: 'shortDate' }}
+    </ng-template>
   </div>
 
   <div class="field col-12 md:col-8">
@@ -34,7 +44,10 @@
     <textarea id="description" rows="5" cols="30" formControlName="description" class="p-inputtext w-full h-32" [ngModel]="rowData.description"></textarea>
   </div>
 
-  <div class="field col-12 md:col-4">
-    <button type="submit" pButton type="button" label="Submit" class="p-button-sm" style="max-height: 50px; margin-top: 25px;"></button>
+  <div class="field col-12 md:col-1">
+    <p-button label="Submit" type="submit"></p-button>
+  </div>
+  <div class="field col-12 md:col-1">
+    <p-button icon="pi pi-refresh" [rounded]="true" severity="secondary" (click)="onReset()"></p-button>
   </div>
 </form>

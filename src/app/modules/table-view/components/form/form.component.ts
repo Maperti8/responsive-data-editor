@@ -10,9 +10,11 @@ import { Stock } from '../../models/stock.interface'
 })
 export class FormComponent {
   @Input() rowData: any;
+  editable = false;
   stock: Stock[] = [];
+  copyStock: Stock[] = [];
 
-  myForm: FormGroup = this.fb.group({
+  stockForm: FormGroup = this.fb.group({
     id: [null, Validators.required],
     symbol: [null, Validators.required],
     company: [null, Validators.required],
@@ -27,11 +29,18 @@ export class FormComponent {
   ngOnChanges() {
     if (this.rowData) {
       this.stock = this.rowData
-     console.log('here', this.stock)
+      this.copyStock = { ...this.stock }
+     console.log('original', this.stock)
+     console.log('copy', this.copyStock)
     }
   }
 
+  onReset() { 
+    this.stockForm.setValue(this.copyStock);
+    console.log('reset');
+  }
+
    onSubmit() {
-    console.log(this.myForm.value);
+    console.log(this.stockForm.value);
   }
 }
